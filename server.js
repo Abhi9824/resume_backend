@@ -15,6 +15,11 @@ app.use(express.json());
 
 app.use('/api', analyzeRoutes);
 
+// Root bridge for deployment verification
+app.get('/', (req, res) => {
+  res.status(200).send('🚀 AI Resume Analyzer API is running!');
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'AI Resume Analyzer API is running' });
